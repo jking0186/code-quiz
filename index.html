@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Code Quiz</title>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div id="timer" class="navbar-brand" data-time="75">75</div>
+      </nav>
+
+        <div id="timer" class="">
+          
+        </div>
+      </nav>
+    <div id="intro">
+        <div class="row mt-5">
+            <div class="col col-margin mt-5 text-center">
+                <h1 class="text-center">Code Quiz Challenge</h1>
+            
+                    <div class='quiz-display'> 
+                        <div class="start-display">
+                            <div class="row">
+                                <div class="col col-md-8 offset-md-2 text-center">
+                                    <p>Try answering the following code-related questions within the time limit. Keep in mind that inccorect answers will penalize your score/time by ten seconds.</p>
+
+                                    <!-- Start Button -->
+
+                                    <button id="start-btn" type="button" class="btn btn-primary">Start</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col col-margin mt-5">
+            <div id="questions" class="mt-5">
+                <div id="question-display"></div>
+                <button id="choices"></button>
+            </div>
+        </div>
+    </div>
+
+<!-- Quiz rules -->
+
+
+    <!-- Question Display -->
+
+    <!-- <div id="question-display">
+        <div class="row">
+            <div class="col">
+                <h2 id="question">Question</h2>
+                <ul id="choice" style="list-style: none">
+                    <li><button type="button" class="btn btn-info btn-block btn-margin">Choice 1</button></li>
+                    <li><button type="button" class="btn btn-info btn-block btn-margin">Choice 2</button></li>
+                    <li><button type="button" class="btn btn-info btn-block btn-margin">Choice 3</button></li>
+                </ul>
+                <div class="alert alert-light" role="alert">
+                    <p id='answerChoice' style='visibility: hidden;'></p>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+    <script src="./script.js"></script>
+</body>
+</html>
