@@ -1,110 +1,98 @@
-// Variables
-var startBtn = document.getElementById("start-btn");
-var introEL = document.querySelector("#intro");
-var questionsEl = document.querySelector("#questions");
-var questionDisplayEl = document.querySelector("#question-display");
-var choicesEl = document.querySelector("#choices");
+var startBtn = document.getElementById("start-display");
+var quizEL = document.querySelector("#quiz-display");
+var questionsEl = document.querySelector("#question-display");
+var timerEl = document.querySelector("#timer-display");
 var countdownEl = document.querySelector("#timer");
+var question = document.querySelector("#question");
 
+var timeLeft = 60;
+var randIndex;
+var correctAnswer;
 
-var question = 
-[
-{
-    display: "The document object, like all other global variables, is a property of which object?",
-    answers: [
-        "Window", 
-        "Location", 
-        "Body"
-    ],
-    correctAnswer: 0
-},
-{
-    display: "Interactivity with JavaScript involves which three basic actions?",
-    answers: [
-        "Browser detection, styling the document, rendering content", 
-        "Selecting elements, manipulating elements, listening for user actons", 
-        "Global scope, document, Document Object Model"
-    ],
-    correctAnswer: 1
-},
-{
-    display: "The ____ is a representation of the document that JavaScript uses to navigate and make changes to a webpage.",
-    answers: [
-        "Chrome developer tools", 
-        "DOM (Document Object Model)", 
-        "globsl objects"
-    ],
-    correctAnswer: 1
-},
-{
-    display: "What is the document object?",
-    answers: [
-        "A feature in the Chrome web browser", 
-        "A representation of a webpage that JavaScript can use", 
-        "A gobal object representing the HTML and content of a web page"
-    ],
-    correctAnswer: 2
-},
-{
-    display: "appendChild() is an example of...",
-    answers: [
-        "A state",
-        "A method",
-        "A function"
-    ],
-    correctAnswer: 1
-},
-];
+// Press start button to display question
+startBtn.addEventListener("click", function(event) {
+    quizEL.style.display = "none";
+    // Replace introduction with questions and choices
+    timerEl.style.display = "inline";   
+    questionsEl.style.display = "inline";
 
-var cursor = 0;
-var score = 0;
-var timeLeft = 75;
-var interval;
-
-
-choicesEl.addEventListener("click", function(event){
-    var element = event.target;
-    if (element.getAttribute("class") === "item") {
-        var id = parseInt(element.getAttribute("data-id"));
-        if (question.correctAnswer === id) {
-            score += 10;
-        } else {
-            console.log("Wrong Answer!")
-        }
-        cursor++
-        generateQuestionaire();
-    }
-})
-
-function generateQuestionaire() {
-    questionDisplayEl.textContent = "1. " + question.display;
-    question.answers.forEach(function(choice, index) {
-        var choiceItem = document.createElement("button");
-        choiceItem.setAttribute("class", "item");
-        choiceItem.setAttribute("data-id", index);
-        choiceItem.textContent = choice;
-        choicesEl.appendChild(choiceItem);
-    });
-}
-
-function startTimer() {
-    timeLeft = parseInt(countdownEl.getAttribute("data-time"))
+    questionsEl.textContent = myQuestions;
+    
+    timeLeft = parseInt(countdownEl.getAttribute("data-time"));
     interval = setInterval(function() {
         timeLeft--;
         if(timeLeft > 0) {
         countdownEl.textContent = timeLeft;
         } else {
-            clearInterval(Interval);
+            clearInterval(interval);
         }
     }, 1000);
-  }
+});
 
-// Make my start button toggle through questions
-startBtn.addEventListener("click", function(event) {
-    introEL.style.display = "none";
-    // Replace introduction with questions and choices
-    questionsEl.style.display = "flex";
-    // var question = question[cursor];
-    generateQuestionaire();
-    startTimer();
-})
+// Render Questions
+for (var i = 0; i < myQuestions.length; i++) {
+    console.log(myQuestions[i]);
+}
+// Create a scoring method for correct answers
+// Subtract time from clock when answered incorrectly
+// Use localstorage to save score and initials
+
+
+
+// Quiz questions and choices
+var myQuestions = [
+    {
+      question: "Who invented JavaScript?",
+      answers: {
+        choiceA: "Douglas Crockford",
+        choiceB: "Sheryl Sandberg",
+        choiceC: "Brendan Eich"
+      },
+      correctAnswer: "choiceC"
+    },
+    {
+    question: "The document object, like all other global variables, is a property of which object?",
+    answers: {
+       choiceA: "Window", 
+       choiceB: "Location", 
+       choiceC: "Body"
+    },
+    correctAnswer: "choiceA"
+},
+    {
+        question: "Interactivity with JavaScript involves which three basic actions?",
+        answers: {
+        choiceA: "Browser detection, styling the document, rendering content", 
+        choiceB: "Selecting elements, manipulating elements, listening for user actons", 
+        choiceC: "Global scope, document, Document Object Model"
+        },
+        correctAnswer: "choiceB"
+    },
+    {
+        question: "The ____ is a representation of the document that JavaScript uses to navigate and make changes to a webpage.",
+        answers: {
+        choiceA: "Chrome developer tools", 
+        choiceB: "DOM (Document Object Model)", 
+        choiceC: "globsl objects"
+        },
+        correctAnswer: "choiceB"
+    },
+    {
+        question: "What is the document object?",
+        answers: {
+        choiceA: "A feature in the Chrome web browser", 
+        choiceB: "A representation of a webpage that JavaScript can use", 
+        choiceC: "A gobal object representing the HTML and content of a web page"
+        },
+        correctAnswer: "choiceC"
+    },
+    {
+        question: "appendChild() is an example of...",
+        answers: {
+        choiceA: "A state",
+        choiceB: "A method",
+        choiceC: "A function"
+        },
+        correctAnswer: "choiceB"
+    },
+]
