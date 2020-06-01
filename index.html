@@ -21,10 +21,10 @@
     <!-- Introduction -->
 
     <div id="quiz-display" class="row">
-        <div id="start-display" class="col col-md-8 offset-md-2 text-center">
+        <div class="col col-md-8 offset-md-2 text-center">
             <p>Try answering the following code-related questions within the time limit. Keep in mind that inccorect answers will penalize your score/time by ten seconds.</p>
             <!-- Start Button -->
-            <button class="btn btn-primary">Start</button>
+            <button class="btn btn-primary" id="start-display">Start</button>
         </div>
     </div>
 
@@ -42,14 +42,14 @@
 
     <!-- Questions & answer choices display when the start button is clicked -->
 
-    <div id="question-display" class="h2 offset-md-4" style="display: none;">
+    <div id="question-display" style="display: none;">
         <div class='row'>
             <div class="col col-md-8 offset-md-2 text-center">
                 <h2 id='question'></h2>
-                <ul id='choices' style="list-style: none">
-                    <li><button type="button" class="btn btn-primary btn-block btn-margin mb-1" id='a'>Choice 1</button></li>
-                    <li><button type="button" class="btn btn-primary btn-block btn-margin mb-1" id='b'>Choice 2</button></li>
-                    <li><button type="button" class="btn btn-primary btn-block btn-margin mb-1" id='c'>Choice 3</button></li>
+                <ul id='choice' style="list-style: none">
+                    <li><button type="button" class="btn btn-primary btn-block btn-margin mb-1" id='choiceA' onclick="verify()">Choice 1</button></li>
+                    <li><button type="button" class="btn btn-primary btn-block btn-margin mb-1" id='choiceB' onclick="verify()">Choice 2</button></li>
+                    <li><button type="button" class="btn btn-primary btn-block btn-margin mb-1" id='choiceC' onclick="verify()">Choice 3</button></li>
                 </ul>
                 <div class="alert alert-light" role="alert">
                     <p id='answerChoice' style='visibility: hidden;'></p>
@@ -57,6 +57,9 @@
             </div>
         </div>
     </div>
+        <div id="results" style="display: none;">
+            <div><h3 style="text-align: center; display: none;">Results</h3></div>
+        </div>
 
     <script src="./script.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
