@@ -76,15 +76,6 @@ function results() {
     resultsEl.textContent = "Correct: " + correctAnswer + " Incorrect: " + incorrectAnswer;
     clearInterval(interval);
 }
-// Render Questions
-// for (var i = 0; i < myQuestions.length; i++) {
-//     console.log(myQuestions[i]);
-// }
-// Create a scoring method for correct answers
-// Subtract time from clock when answered incorrectly
-// Use localstorage to save score and initials
-
-
 
 // Quiz questions and choices
 var myQuestions = [
